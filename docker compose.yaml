@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    build: ./app
+    depends_on:
+      - db
+    volumes:
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: warehouse
+    volumes:
+      - pgdata:/var/lib/postgresql/database
+volumes:
+  pgdata:
+ db:
+    login: www.webdatawarhouse.com
+    url: portnumber:8080
+volumes:
+      disksize: +6GB
+      EXIT:
+      
